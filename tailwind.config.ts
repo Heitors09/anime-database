@@ -20,6 +20,7 @@ const config = {
     extend:{
       backgroundColor: {
         'carousel': 'rgba(0, 0, 0, 0.1)',
+        'carousel-images' : 'rgba(0, 0, 0, 0.8)',
         'seasonal' : 'rgba(228, 92, 186, 0.5)'
       }
     }
