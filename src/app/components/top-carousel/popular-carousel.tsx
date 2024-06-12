@@ -1,6 +1,6 @@
 'use client'
 import { useQuery } from "@tanstack/react-query"
-import { fetchPopularAnimes } from "../../api/mangas/anime-list"
+import { fetchPopularAnimes } from "../../api/animes/anime-list"
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import Image from "next/image"
