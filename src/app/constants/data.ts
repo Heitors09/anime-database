@@ -2,28 +2,20 @@ import { CircleAlert, Flame, List, Newspaper, Play } from "lucide-react";
 
 export const headerItems = [
     {
-      text: 'Animes',
-      href: '/animes',
-      icon: Play
+      text: 'Home',
+      href: '/',
     },
     {
-      text: 'Top watch',
-      href: '/top-watch',
-      icon: Flame
+      text: 'Catalog',
+      href: '/catalog',
     },
     {
       text: 'Genres',
       href: '/genres',
-      icon : List
     },
     {
-      text: 'News',
-      href: '/news',
-      icon: Newspaper
+      text: 'Collections',
+      href: '/collections',
     },
-    {
-      text: 'Recent',
-      href: '/recent',
-      icon: CircleAlert
-    }
+   
 ]

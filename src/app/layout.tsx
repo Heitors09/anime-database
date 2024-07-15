@@ -3,9 +3,11 @@ import "./globals.css";
 import { Inter, Poppins } from "next/font/google";
 import AppWrapper from "./context/app-wrapper";
 import Header from "./components/header/header";
+import { Montserrat } from "next/font/google";
 
 const poppins = Poppins({subsets:['latin'], weight: '500'})
 const inter = Inter({subsets: ['latin']})
+const montserrat = Montserrat({subsets: ['latin']})
 
 
 export const metadata: Metadata = {
@@ -21,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AppWrapper>
-       <body className={poppins.className}>
+       <body className={montserrat.className}>
        <div className=" w-full h-full">
        <Header/>
           <main>

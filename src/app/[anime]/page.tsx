@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { getAnimeInfosById } from "../api/animes/anime-info"
+import { getAnimeById } from "../api/animes/anime-info"
 import { Info, Play, PlayIcon, Plus, PlusIcon, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -12,7 +12,7 @@ type AnimePageProps = {
 
 
 const AnimePage = async ({ params: {anime} }: AnimePageProps) => {
- const animeInfo = await getAnimeInfosById(anime)
+ const animeInfo = await getAnimeById(anime)
  console.log(animeInfo)
 
 
@@ -30,11 +30,11 @@ const AnimePage = async ({ params: {anime} }: AnimePageProps) => {
        <h1 className="text-2xl font-extrabold">{animeInfo.data.title}</h1> 
        <p className="w-[600px] text-zinc-200 line-clamp-6 mt-1">{animeInfo.data.synopsis}</p>
        <div className=" text-sm mt-2 text-zinc-300 flex items-center gap-2">
-           <Button className="ring-pink-500 ring-1 gap-1 text-white">
+           <Button className="ring-zinc-300 ring-1 gap-1 text-white">
              <PlusIcon/>
              Add to List
            </Button>
-            <Button className="bg-pink-500 gap-1 text-white">
+            <Button className="bg-white  gap-1 text-black">
               <Play size={18}/>Watch now 
             </Button> 
           <div className="flex items-center gap-1 ">

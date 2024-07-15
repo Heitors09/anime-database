@@ -1,12 +1,11 @@
-import PopularCarousel from "./components/top-carousel/popular-carousel"
-import SeaseonCarousel from "./components/seaseon-carousel/seaseon-carousel"
+import Image from "next/image";
+import SeasonCarousel from "./components/season-carousel/season-carousel";
 
 
-export default function Home() {
- 
+export default async function Home() {
   return (
     <div className="flex flex-col items-center">
-      <SeaseonCarousel/>
+      <SeasonCarousel/>
     </div>
   )
 }

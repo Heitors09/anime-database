@@ -5,11 +5,10 @@ import { headerItems } from "../../constants/data"
 
 const HeaderActions = () => {
   return (
-    <ul className="flex gap-8 text-sm ">
-      {headerItems.map(({text, icon: Icon, href}) => (
+    <ul className="flex gap-8 ">
+      {headerItems.map(({text,  href}) => (
          <li key={text} >
-          <Link href={href} className="text-white flex items-center border-b-2 border-[#e45cba] gap-1 text-white hover:bg-[#e45cba] p-3 rounded-full duration-200">
-           <Icon width={20} height={20}/>
+          <Link href={href} className="text-zinc-300  flex items-center gap-1   p-3  duration-200">
             {text}
             </Link>
          </li>

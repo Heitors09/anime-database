@@ -1,16 +1,13 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import { Neucha } from 'next/font/google'
+
+const neucha = Neucha({subsets: ['latin'], weight: ['400']})
+
 
 const Logo = () => {
   return (
-    <Link href='/' className='flex items-center text-lg font-bold gap-2 '>
-       <Image 
-       src='/logo-anime.png'
-       alt='logo image'
-       width={42}
-       height={42}
-       />
-     <p className="text-white">Anime Action</p>
+    <Link href='/' className='flex items-center   gap-2 text-white text-4xl'>
+     <p className={neucha.className}>Izayoi</p>
     </Link>
   )
 }
