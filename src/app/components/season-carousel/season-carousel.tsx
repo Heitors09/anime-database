@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import CarouselSkeleton from "./carousel-skeleton"
 import { useRouter } from "next/navigation"
 import { Neucha } from 'next/font/google'
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const neucha = Neucha({subsets: ['latin'], weight: ['400']})
 
@@ -28,20 +29,19 @@ const{data, isLoading} = useQuery({
   
 })
 
-if (isLoading) return <CarouselSkeleton/>
+if (isLoading) return <h2>Loading...</h2>
 
-console.log(data)
 
 
 
   return (
     <div className=" text-white   w-[90%] 2xl:w-full">
      
-    <div className="mt-12 flex flex-col text-3xl gap-4">
+    <div className="mt-4 relative flex flex-col text-3xl gap-4">
       <h2 className={neucha.className}>Seasonal anime</h2>
     <div ref={ref} className="keen-slider h-64 w-10 ">
           {data?.map(anime => (
-            <div key={anime.mal_id} className="keen-slider__slide rounded-md group cursor-pointer" onClick={() => route.push(`/${anime.mal_id}`)}>
+            <div key={anime.mal_id} className="keen-slider__slide rounded-md group cursor-pointer  hover:brightness-75" onClick={() => route.push(`/${anime.mal_id}`)}>
                <Image
                  src={anime.images.jpg.large_image_url}
                  alt="anime-cover"
@@ -50,7 +50,16 @@ console.log(data)
             </div>
           ))}
        </div>
+       <div className="flex cursor-pointer">
          
+         <ChevronLeft className="absolute -left-14 top-36 hover:bg-muted  opacity-75 p-1" size={44}  onClick={(e: any) =>
+                e.stopPropagation() || instanceRef.current?.prev()
+              }/>
+         <ChevronRight className="absolute -right-14 top-36 hover:bg-muted  opacity-75 p-1" size={44} onClick={(e: any) =>
+                e.stopPropagation() || instanceRef.current?.next()
+              }/>
+       </div>
+
     </div>  
     </div>
   )

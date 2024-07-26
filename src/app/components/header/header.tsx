@@ -8,7 +8,7 @@ const Header = () => {
     <div className=" w-full  h-[80px] ring-zinc-300 ring-opacity-75 flex items-center justify-around ring-1 ">
       <Logo/>
       <HeaderActions/>
-      <SearchBar/>
+      <SearchBar placeholder="Search"/>
       <Buttons/>
     </div>
   )

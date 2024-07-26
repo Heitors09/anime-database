@@ -1,5 +1,6 @@
 'use client'
 
+import { TooltipProvider } from "@radix-ui/react-tooltip"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactNode } from "react"
 
@@ -11,7 +12,9 @@ const AppWrapper = ({children}: {children: ReactNode}) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {children}
+      <TooltipProvider>
+        {children}
+      </TooltipProvider>
     </QueryClientProvider>
   )
 }

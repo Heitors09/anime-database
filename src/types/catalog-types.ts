@@ -1,5 +1,22 @@
-export type AnimeTypes = {
-  data: {
+export interface Catalog {
+  pagination: Pagination
+  data: Daum[]
+}
+
+export interface Pagination {
+  last_visible_page: number
+  has_next_page: boolean
+  current_page: number
+  items: Items
+}
+
+export interface Items {
+  count: number
+  total: number
+  per_page: number
+}
+
+export interface Daum {
   mal_id: number
   url: string
   images: Images
@@ -12,7 +29,7 @@ export type AnimeTypes = {
   title_synonyms: string[]
   type: string
   source: string
-  episodes: number
+  episodes?: number
   status: string
   airing: boolean
   aired: Aired
@@ -26,17 +43,16 @@ export type AnimeTypes = {
   favorites: number
   synopsis: string
   background: string
-  season: string
-  year: number
+  season?: string
+  year?: number
   broadcast: Broadcast
   producers: Producer[]
-  licensors: any[]
+  licensors: Licensor[]
   studios: Studio[]
   genres: Genre[]
   explicit_genres: any[]
-  themes: any[]
+  themes: Theme[]
   demographics: Demographic[]
-  }[]
 }
 
 export interface Images {
@@ -57,18 +73,18 @@ export interface Webp {
 }
 
 export interface Trailer {
-  youtube_id: string
-  url: string
-  embed_url: string
+  youtube_id?: string
+  url?: string
+  embed_url?: string
   images: Images2
 }
 
 export interface Images2 {
-  image_url: string
-  small_image_url: string
-  medium_image_url: string
-  large_image_url: string
-  maximum_image_url: string
+  image_url?: string
+  small_image_url?: string
+  medium_image_url?: string
+  large_image_url?: string
+  maximum_image_url?: string
 }
 
 export interface Title {
@@ -78,7 +94,7 @@ export interface Title {
 
 export interface Aired {
   from: string
-  to: string
+  to?: string
   prop: Prop
   string: string
 }
@@ -95,19 +111,26 @@ export interface From {
 }
 
 export interface To {
-  day: number
-  month: number
-  year: number
+  day?: number
+  month?: number
+  year?: number
 }
 
 export interface Broadcast {
-  day: string
-  time: string
-  timezone: string
-  string: string
+  day?: string
+  time?: string
+  timezone?: string
+  string?: string
 }
 
 export interface Producer {
+  mal_id: number
+  type: string
+  name: string
+  url: string
+}
+
+export interface Licensor {
   mal_id: number
   type: string
   name: string
@@ -128,11 +151,16 @@ export interface Genre {
   url: string
 }
 
-export interface Demographic {
+export interface Theme {
   mal_id: number
   type: string
   name: string
   url: string
 }
 
-
+export interface Demographic {
+  mal_id: number
+  type: string
+  name: string
+  url: string
+}

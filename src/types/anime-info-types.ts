@@ -1,8 +1,12 @@
-export interface MangaResponse {
- data:{
+export interface AnimeInfosDataType {
+  data: Data
+}
+
+export interface Data {
   mal_id: number
   url: string
   images: Images
+  trailer: Trailer
   approved: boolean
   titles: Title[]
   title: string
@@ -10,13 +14,14 @@ export interface MangaResponse {
   title_japanese: string
   title_synonyms: string[]
   type: string
-  chapters: any
-  volumes: any
+  source: string
+  episodes: number
   status: string
-  publishing: boolean
-  published: Published
+  airing: boolean
+  aired: Aired
+  duration: string
+  rating: string
   score: number
-  scored: number
   scored_by: number
   rank: number
   popularity: number
@@ -24,13 +29,20 @@ export interface MangaResponse {
   favorites: number
   synopsis: string
   background: string
-  authors: Author[]
-  serializations: Serialization[]
+  season: string
+  year: number
+  broadcast: Broadcast
+  producers: Producer[]
+  licensors: any[]
+  studios: Studio[]
   genres: Genre[]
   explicit_genres: any[]
   themes: Theme[]
-  demographics: Demographic[]
- }[]
+  demographics: any[]
+  relations: Relation[]
+  theme: Theme2
+  external: External[]
+  streaming: Streaming[]
 }
 
 export interface Images {
@@ -50,12 +62,27 @@ export interface Webp {
   large_image_url: string
 }
 
+export interface Trailer {
+  youtube_id: string
+  url: string
+  embed_url: string
+  images: Images2
+}
+
+export interface Images2 {
+  image_url: string
+  small_image_url: string
+  medium_image_url: string
+  large_image_url: string
+  maximum_image_url: string
+}
+
 export interface Title {
   type: string
   title: string
 }
 
-export interface Published {
+export interface Aired {
   from: string
   to: any
   prop: Prop
@@ -79,14 +106,21 @@ export interface To {
   year: any
 }
 
-export interface Author {
+export interface Broadcast {
+  day: string
+  time: string
+  timezone: string
+  string: string
+}
+
+export interface Producer {
   mal_id: number
   type: string
   name: string
   url: string
 }
 
-export interface Serialization {
+export interface Studio {
   mal_id: number
   type: string
   name: string
@@ -107,14 +141,29 @@ export interface Theme {
   url: string
 }
 
-export interface Demographic {
+export interface Relation {
+  relation: string
+  entry: Entry[]
+}
+
+export interface Entry {
   mal_id: number
   type: string
   name: string
   url: string
 }
 
+export interface Theme2 {
+  openings: string[]
+  endings: string[]
+}
 
+export interface External {
+  name: string
+  url: string
+}
 
-
-
+export interface Streaming {
+  name: string
+  url: string
+}

@@ -1,7 +1,9 @@
-export async function getAnimeById(id: number){
-   const data = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
-   const response =  data.json()
+import { AnimeInfosDataType } from "@/types/anime-info-types"
 
-   return response
+export async function getAnimeById(id: number){
+   const response = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`)
+   const data = await  response.json() as AnimeInfosDataType
+
+   return data
 
 }

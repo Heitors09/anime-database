@@ -23,7 +23,11 @@ const config = {
         'carousel-images' : 'rgba(0, 0, 0, 0.8)',
         'seasonal' : 'rgba(228, 92, 200, 0.7)',
         'anime-synopsis' : 'rgba(0, 0, 0, 0.3)'
-      }
+      },
+      backgroundImage: {
+        'fade-out': 'linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.5) 10%, transparent 100%)',
+      },
+
     }
     
   },
