@@ -7,7 +7,7 @@ export const headerItems = [
     },
     {
       text: 'Catalog',
-      href: '/catalog',
+      href: '/catalog?page=1',
     },
     {
       text: 'Genres',

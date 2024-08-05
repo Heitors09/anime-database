@@ -6,11 +6,11 @@ import { Catalog } from '@/types/catalog-types'
 import { useQuery } from '@tanstack/react-query'
 import { Bookmark, Star } from 'lucide-react'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-import React from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import React, { useCallback } from 'react'
 
 type CatalogListTypes = {
-  catalog : Catalog
+  catalog : Catalog | undefined
 }
 
 const CatalogList = ({catalog}: CatalogListTypes) => {
@@ -21,11 +21,12 @@ const CatalogList = ({catalog}: CatalogListTypes) => {
     router.push(`/${id}`)
   }
  
+ 
 
 
   return (
     <div className='grid grid-cols-5 gap-4 pb-10'>
-      {catalog.data.map(anime => (
+      {catalog?.data.map(anime => (
         <div key={anime.mal_id} className='relative  w-52 h-72 rounded-md cursor-pointer' onClick={ () => handleRouterPush(anime.mal_id)}>
           <Image
           src={anime.images.jpg.large_image_url}

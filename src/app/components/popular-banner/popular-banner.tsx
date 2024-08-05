@@ -21,6 +21,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import PopularSkeleton from './popular-skeleton'
 
 const PopularBanner = () => {
 
@@ -30,7 +31,6 @@ const PopularBanner = () => {
   })
   
 
-  console.log(data)
 
 
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -42,7 +42,7 @@ const PopularBanner = () => {
     },
   })
 
-  if(isLoading) return <h2>Loading...</h2>
+  if(isLoading) return <PopularSkeleton/>
   
   
  console.log(data)

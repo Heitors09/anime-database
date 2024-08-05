@@ -29,7 +29,7 @@ const{data, isLoading} = useQuery({
   
 })
 
-if (isLoading) return <h2>Loading...</h2>
+if (isLoading) return <CarouselSkeleton/>
 
 
 

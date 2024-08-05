@@ -3,7 +3,11 @@ import 'keen-slider/keen-slider.min.css'
 
 const CarouselSkeleton = () => {
   return (
-   <div className="h-[430px] w-[1300px]  animate-pulse bg-carousel rounded-md  "></div>
+    <div className='flex gap-5'>
+    {Array.from({ length: 6 }).map((_, index) => ( 
+      <div className='w-[186px] h-[256px] animate-pulse  rounded-md bg-[#0a0a0a]' key={index}></div>
+    ))}
+  </div>
   )
 }
 
