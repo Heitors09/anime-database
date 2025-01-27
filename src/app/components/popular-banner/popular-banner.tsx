@@ -30,7 +30,7 @@ const PopularBanner = () => {
     queryFn: fetchPopular
   })
   
-
+ //fix
 
 
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -42,17 +42,18 @@ const PopularBanner = () => {
     },
   })
 
+
   if(isLoading) return <PopularSkeleton/>
+
   
   
- console.log(data)
 
 
   return (
     <>
         <div ref={ref} className="keen-slider relative">
-          {data?.map(popular => (
-           <div key={popular.id} className="keen-slider__slide relative h-[500px]" >
+          {data?.map((popular: any) => (
+           <div key={popular.id} className="keen-slider__slide relative h-[40rem]" >
            <img
              src={popular.banner}
              alt="anime popular banner"
@@ -73,7 +74,7 @@ const PopularBanner = () => {
                   <DialogTitle className='text-white px-5'>Avaible on</DialogTitle>
                    <div className='flex flex-col  gap-1'>
                     
-                     {popular.streaming.platforms.map((platforms, index: number) => (
+                     {popular.platforms.map((platforms, index: number) => (
                       <p className='text-white w-[200px]  h-10 rounded-md flex gap-1 group items-center px-7  hover:bg-[#242424] duration-200 cursor-pointer' key={index}>{platforms}<ChevronRight className='h-3 w-3 group-hover:ml-1 group-hover:duration-200'/></p>
                      ))}
                      
