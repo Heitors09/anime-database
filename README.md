@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AnimeHub
 
-## Getting Started
+![first section](https://github.com/user-attachments/assets/dca6bdbc-f2a3-438d-94a2-14888810f78c)
+![seconde-section](https://github.com/user-attachments/assets/fec4a248-9c11-4f7d-a7af-48acd853718c)
 
-First, run the development server:
+## Sobre o Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O **AnimeHub** é uma plataforma moderna e intuitiva para fãs de anime explorarem, descobrirem e organizarem suas séries favoritas. Com um catálogo extenso, informações detalhadas, trailers, personagens e integração com plataformas de streaming, o AnimeHub é o seu novo ponto de referência para tudo relacionado ao universo dos animes.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Em breve, você contará também com uma **IA assistente** para recomendações personalizadas, tornando sua experiência ainda mais única e inteligente!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## ✨ Funcionalidades
 
-## Learn More
+- **Catálogo Completo:** Explore uma vasta base de dados de animes, com capas, sinopses, trailers, personagens e informações detalhadas.
+- **Busca Inteligente:** Encontre rapidamente qualquer anime pelo nome, gênero ou coleção.
+- **Onde Assistir:** Descubra em quais plataformas de streaming cada anime está disponível.
+- **Favoritos e Listas:** Adicione animes à sua lista de favoritos e organize suas maratonas.
+- **Recomendações por IA (em breve):** Receba sugestões personalizadas de animes com base no seu gosto, histórico e preferências, graças a uma assistente de IA integrada.
+- **Interface Responsiva:** Visual moderno, escuro e adaptado para qualquer dispositivo.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Catálogo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![catalog](https://github.com/user-attachments/assets/9a0a4aca-84b2-4a1f-9791-e39a44783f27)
 
-## Deploy on Vercel
+- Navegue por capas de animes organizadas em grid.
+- Filtros por gênero, coleção e busca rápida.
+- Paginação intuitiva.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+
+---
