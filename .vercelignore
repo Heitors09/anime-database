@@ -1,0 +1,4 @@
+# Ignore tudo exceto a pasta public
+/*
+!public/
+!public/mock-images/ 

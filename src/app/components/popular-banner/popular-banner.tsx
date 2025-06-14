@@ -50,6 +50,7 @@ const PopularBanner = () => {
              fill
              className="object-cover object-top"
              priority
+             unoptimized
            />
            <div className="absolute inset-0 bg-gradient-to-r from-[#121212] to-transparent"></div>
            <div className="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent"></div>
