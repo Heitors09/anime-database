@@ -22,19 +22,3 @@ Em breve, você contará também com uma **IA assistente** para recomendações 
 
 ---
 
-### Catálogo
-
-![catalog](https://github.com/user-attachments/assets/9a0a4aca-84b2-4a1f-9791-e39a44783f27)
-
-- Navegue por capas de animes organizadas em grid.
-- Filtros por gênero, coleção e busca rápida.
-- Paginação intuitiva.
-
-
-
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
-
----
