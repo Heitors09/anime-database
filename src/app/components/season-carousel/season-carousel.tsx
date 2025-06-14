@@ -19,7 +19,7 @@ const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: "free-snap",
     slides: {
-      perView: 6,
+      perView: 8,
       spacing: 20,
     },
   })
@@ -35,11 +35,11 @@ if (isLoading) return <CarouselSkeleton/>
 
 
   return (
-    <div className=" text-white   w-[90%] 2xl:w-full">
+    <div className=" text-white px-16  pb-16  w-[90%] 2xl:w-full">
      
-    <div className="mt-4 relative flex flex-col text-3xl gap-4">
-      <h2 className={neucha.className}>Seasonal anime</h2>
-    <div ref={ref} className="keen-slider h-64 w-10 ">
+    <div className="mt-4 relative flex flex-col items-center text-4xl gap-4">
+      <h2  className="text-2xl font-bold">Seasonal anime</h2>
+    <div ref={ref} className="keen-slider cursor-grab h-64 w-10 ">
           {data?.map(anime => (
             <div key={anime.mal_id} className="keen-slider__slide rounded-md group cursor-pointer  hover:brightness-75" onClick={() => route.push(`/${anime.mal_id}`)}>
                <Image
@@ -50,16 +50,7 @@ if (isLoading) return <CarouselSkeleton/>
             </div>
           ))}
        </div>
-       <div className="flex cursor-pointer">
-         
-         <ChevronLeft className="absolute -left-14 top-36 hover:bg-muted  opacity-75 p-1" size={44}  onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.prev()
-              }/>
-         <ChevronRight className="absolute -right-14 top-36 hover:bg-muted  opacity-75 p-1" size={44} onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.next()
-              }/>
-       </div>
-
+       <p className="text-sm text-gray-400 text-center mt-2">Arraste para o lado para ver mais animes</p>
     </div>  
     </div>
   )

@@ -57,7 +57,18 @@ const handleNumberClick = (page: number) => {
         <div className='flex font-bold gap-3 text-white'>
           {pageNumberArray.map((page,index) => (
           <div key={index}>
-            {pageNumber === page ? (<button className='bg-zinc-800 shadow-md p-2 size-8 flex justify-center rounded-full transition-all ease-in-out duration-300'>{page}</button>): (<button onClick={() => handleNumberClick(page)} className='transition-all ease-in-out duration-300 p-2 size-8 flex justify-center rounded-full'>{page}</button>)}
+            {pageNumber === Number(page) ? (
+              <button className='bg-zinc-800 shadow-md p-2 size-8 flex justify-center rounded-full transition-all ease-in-out duration-300'>
+                {page}
+              </button>
+            ) : (
+              <button 
+                onClick={() => handleNumberClick(Number(page))} 
+                className='transition-all ease-in-out duration-300 p-2 size-8 flex justify-center rounded-full'
+              >
+                {page}
+              </button>
+            )}
           </div>
         ))}
         </div>

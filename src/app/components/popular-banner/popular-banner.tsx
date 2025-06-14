@@ -1,12 +1,9 @@
 'use client'
 
-import { getAnimeById } from '@/app/api/animes/anime-info'
-import { fetchPopular } from '@/app/api/animes/anime-popular'
 import { Button } from '@/components/ui/button'
-import { useQuery } from '@tanstack/react-query'
 import { useKeenSlider } from 'keen-slider/react'
 import { Bookmark, ChevronLeft, ChevronRight, Play } from 'lucide-react'
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Tooltip,
   TooltipContent,
@@ -16,20 +13,16 @@ import {
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import PopularSkeleton from './popular-skeleton'
+import { popularBanner } from '@/app/constants/data'
+import Image from 'next/image'
 
 const PopularBanner = () => {
 
-  const{data, isLoading} = useQuery({
-    queryKey : ['most-popular'],
-    queryFn: fetchPopular
-  })
-  
+
 
 
 
@@ -42,32 +35,32 @@ const PopularBanner = () => {
     },
   })
 
-  if(isLoading) return <PopularSkeleton/>
   
   
- console.log(data)
 
 
   return (
     <>
         <div ref={ref} className="keen-slider relative">
-          {data?.map(popular => (
-           <div key={popular.id} className="keen-slider__slide relative h-[500px]" >
-           <img
+          {popularBanner?.map(popular => (
+           <div key={popular.id} className="keen-slider__slide relative h-[800px]" >
+           <Image
              src={popular.banner}
              alt="anime popular banner"
-             className="w-full h-full object-cover object-top"
+             fill
+             className="object-cover object-top"
+             priority
            />
            <div className="absolute inset-0 bg-gradient-to-r from-[#121212] to-transparent"></div>
            <div className="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent"></div>
-           <div className="absolute z-10 top-40 left-[64px] bottom-0 flex items-start  w-full">
-             <div className="text-white max-w-md flex flex-col gap-6 ">
-               <h1 className="text-3xl font-bold">{popular.name}</h1>
-               <p className="text-sm text-clip line-clamp-6 ">{popular.description}</p>
+           <div className="absolute z-10 top-48 left-[64px] bottom-0 flex items-start  w-full">
+             <div className="text-white max-w-xl flex flex-col gap-6 ">
+               <h1 className="text-6xl font-bold">{popular.name}</h1>
+               <p className="text-lg text-clip line-clamp-6 ">{popular.description}</p>
                <div className='flex gap-2'>
                 <Dialog>
                   <DialogTrigger>
-                    <Button className="bg-white text-[#0a0a0a] font-bold w-56  flex gap-1"><Play/>Watch Episodes</Button>
+                    <Button className="bg-white text-[#0a0a0a] font-bold  px-8 py-6  flex gap-1"><Play/>Watch Episodes</Button>
                   </DialogTrigger>
                   <DialogContent className='h-auto w-auto rounded-md bg-[#0a0a0a]'>
                   <DialogTitle className='text-white px-5'>Avaible on</DialogTitle>
@@ -82,7 +75,7 @@ const PopularBanner = () => {
                 </Dialog>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Button className='bg-[#242424] text-white'><Bookmark/></Button>
+                    <Button className='bg-[#242424] py-6 text-white'><Bookmark/></Button>
                   </TooltipTrigger>
                   <TooltipContent className='bg-[#242424] text-white'>
                     <p >Save in a list</p>
