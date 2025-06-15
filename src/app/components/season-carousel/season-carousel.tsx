@@ -50,7 +50,7 @@ if (isLoading) return <CarouselSkeleton/>
             </div>
           ))}
        </div>
-       <p className="text-sm text-gray-400 text-center mt-2">Arraste para o lado para ver mais animes</p>
+       <p className="text-sm text-gray-400 text-center mt-2">Drag to see more animes</p>
     </div>  
     </div>
   )
