@@ -12,7 +12,7 @@ import CatalogSkeleton from '../components/catalog/catalog-skeleton'
 import CatalogNavbar from '../components/catalog/catalog-navbar'
 import { fetchAnimeSearchFilter } from '../api/animes/anime-search-filter'
 
-const CatalogContent = () => {
+export default function CatalogPage() {
   const params = useSearchParams()
   const getPage = params.get('page') ?? ''
   const pageNumber = parseInt(getPage, 10) 
@@ -38,10 +38,3 @@ const CatalogContent = () => {
   )
 }
 
-export default function Catalog() {
-  return (
-    <Suspense fallback={<CatalogSkeleton />}>
-      <CatalogContent />
-    </Suspense>
-  )
-}

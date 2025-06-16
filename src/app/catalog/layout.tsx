@@ -5,6 +5,8 @@ import { useSearchParams } from "next/navigation"
 import CatalogNavbar from "../components/catalog/catalog-navbar"
 
 import CatalogFilter from "../components/catalog/catalog-filter"
+import { Suspense } from "react"
+import CatalogSkeleton from "../components/catalog/catalog-skeleton"
 
 
 
@@ -20,7 +22,8 @@ export default function CatalogLayout({children}: {children: React.ReactNode}) {
   return (
     <div>
       <CatalogFilter/>
-      {children}
+      
+         {children}
       <CatalogNavbar params={params} pageNumber={pageNumber}/>
     </div>
   )
