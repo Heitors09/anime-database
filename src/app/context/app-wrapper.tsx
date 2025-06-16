@@ -2,14 +2,12 @@
 
 import { TooltipProvider } from "@radix-ui/react-tooltip"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { ReactNode, Suspense } from "react"
+import { ReactNode, Suspense, useState } from "react"
 import CatalogSkeleton from "../components/catalog/catalog-skeleton"
 
 
 const AppWrapper = ({children}: {children: ReactNode}) => {
-   const queryClient = new QueryClient()
-
-
+   const [queryClient] = useState(() => new QueryClient())
 
   return (
     <QueryClientProvider client={queryClient}>

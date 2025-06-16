@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { useKeenSlider } from 'keen-slider/react'
 import { Bookmark, ChevronLeft, ChevronRight, Play } from 'lucide-react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Tooltip,
   TooltipContent,
@@ -21,11 +21,7 @@ import { popularBanner } from '@/app/constants/data'
 import Image from 'next/image'
 
 const PopularBanner = () => {
-
-
-
-
-
+  const [mounted, setMounted] = useState(false)
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: 'snap',
@@ -35,9 +31,13 @@ const PopularBanner = () => {
     },
   })
 
-  
-  
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
+  if (!mounted) {
+    return <PopularSkeleton />
+  }
 
   return (
     <>
@@ -60,7 +60,7 @@ const PopularBanner = () => {
                <p className="text-lg text-clip line-clamp-6 ">{popular.description}</p>
                <div className='flex gap-2'>
                 <Dialog>
-                  <DialogTrigger>
+                  <DialogTrigger asChild>
                     <Button className="bg-white text-[#0a0a0a] font-bold  px-8 py-6  flex gap-1"><Play/>Watch Episodes</Button>
                   </DialogTrigger>
                   <DialogContent className='h-auto w-auto rounded-md bg-[#0a0a0a]'>
@@ -75,11 +75,11 @@ const PopularBanner = () => {
                   </DialogContent>
                 </Dialog>
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger asChild>
                     <Button className='bg-[#242424] py-6 text-white'><Bookmark/></Button>
                   </TooltipTrigger>
                   <TooltipContent className='bg-[#242424] text-white'>
-                    <p >Save in a list</p>
+                    <p>Save in a list</p>
                   </TooltipContent>
                 </Tooltip> 
                </div>

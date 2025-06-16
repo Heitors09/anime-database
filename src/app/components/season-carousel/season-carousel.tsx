@@ -14,8 +14,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 const neucha = Neucha({subsets: ['latin'], weight: ['400']})
 
 const SeasonCarousel = () => {
-const route = useRouter()
-const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
+  const route = useRouter()
+  const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: "free-snap",
     slides: {
@@ -23,35 +23,36 @@ const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
       spacing: 20,
     },
   })
-const{data, isLoading} = useQuery({
-  queryKey: ['seasonal-anime'],
-  queryFn: fetchSeasonalAnimes,
-  
-})
 
-if (isLoading) return <CarouselSkeleton/>
+  const { data, isLoading } = useQuery({
+    queryKey: ['seasonal-anime'],
+    queryFn: fetchSeasonalAnimes,
+  })
 
-
-
+  if (isLoading) return <CarouselSkeleton />
 
   return (
-    <div className=" text-white px-16  pb-16  w-[90%] 2xl:w-full">
-     
-    <div className="mt-4 relative flex flex-col items-center text-4xl gap-4">
-      <h2  className="text-2xl font-bold">Seasonal anime</h2>
-    <div ref={ref} className="keen-slider cursor-grab h-64 w-10 ">
-          {data?.map(anime => (
-            <div key={anime.mal_id} className="keen-slider__slide rounded-md group cursor-pointer  hover:brightness-75" onClick={() => route.push(`/${anime.mal_id}`)}>
-               <Image
-                 src={anime.images.jpg.large_image_url}
-                 alt="anime-cover"
-                 fill
-                 /> 
+    <div className="text-white px-16 pb-16 w-[90%] 2xl:w-full">
+      <div className="mt-4 relative flex flex-col items-center text-4xl gap-4">
+        <h2 className="text-2xl font-bold">Seasonal anime</h2>
+        <div ref={ref} className="keen-slider cursor-grab h-64 w-full">
+          {data?.map((anime, index) => (
+            <div 
+              key={`${anime.mal_id}-${index}`} 
+              className="keen-slider__slide rounded-md group cursor-pointer hover:brightness-75" 
+              onClick={() => route.push(`/${anime.mal_id}`)}
+            >
+              <Image
+                src={anime.images.jpg.large_image_url}
+                alt={`${anime.title} cover`}
+                fill
+                className="object-cover rounded-md"
+              /> 
             </div>
           ))}
-       </div>
-       <p className="text-sm text-gray-400 text-center mt-2">Drag to see more animes</p>
-    </div>  
+        </div>
+        <p className="text-sm text-gray-400 text-center mt-2">Drag to see more animes</p>
+      </div>  
     </div>
   )
 }
