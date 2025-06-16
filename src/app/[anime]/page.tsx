@@ -6,12 +6,15 @@ import '@/styles/index.css'
 import { getCharactersAnimeById } from "../api/animes/anime-characters"
 import AnimeCard from "../components/anime-page/anime-card"
 import AnimeCast from "../components/anime-page/anime-cast"
+import AnimesInformationSkeleton from "../components/anime-page/animes-information-skeleton"
 
 type AnimePageProps = {
   params: {
     anime: number
   }
 }
+
+
 
 
 const AnimePage = async ({ params: {anime} }: AnimePageProps) => {

@@ -5,8 +5,6 @@ import { useQuery } from '@tanstack/react-query'
 import { useKeenSlider } from 'keen-slider/react'
 import Image from 'next/image'
 import "keen-slider/keen-slider.min.css"
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import CastSkeleton from './animes-cast-skeleton'
 
 
 
@@ -28,18 +26,15 @@ const AnimeCast = ({animeId}: animeCastProps) => {
     queryFn: () => getCharactersAnimeById(animeId),
   })
 
-  if(isLoading){
-    return <CastSkeleton/>
-  }
+
    
-  console.log(data)
   
   return (
   <div>
 
   <h2 className='m-5 text-white text-xl'>Characters & Info</h2>
   
-    <div className='relative bg-carousel h-auto p-5  w-[1300px] rounded-md  mb-12 grid grid-cols-4 gap-6'>
+    <div className='relative bg-carousel h-[500px] overflow-y-scroll p-5  w-[1300px] rounded-md  mb-12 grid grid-cols-4 gap-6'>
       {data?.data.map(character => (
           <div key={character.character.mal_id} className='rounded-md p-5 flex gap-5 duration-200  text-white hover:cursor-pointer hover:bg-anime-synopsis'>
             <Image

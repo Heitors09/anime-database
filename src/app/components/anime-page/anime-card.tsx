@@ -1,12 +1,13 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { Play, PlusIcon, Star } from 'lucide-react'
+import { Play, PlusIcon, Sparkles, Star } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import { useQuery } from "@tanstack/react-query"
 import { getAnimeById } from '@/app/api/animes/anime-info'
 import SeasonCarousel from '../season-carousel/season-carousel'
+import AnimesInformationSkeleton from './animes-information-skeleton'
 
 
 type animeCardProps = {
@@ -19,13 +20,15 @@ const AnimeCard = ({animeId} : animeCardProps) => {
     queryKey: ['anime-info'],
     queryFn: () => getAnimeById(animeId),
   })
-   
+
+
+
 
   if(isLoading){
-    return <SeasonCarousel/>
+    return <AnimesInformationSkeleton/>
   }
-  
-  console.log(data)
+   
+
 
 
   return (
@@ -46,8 +49,8 @@ const AnimeCard = ({animeId} : animeCardProps) => {
        <div className=" text-sm mt-5 text-zinc-300 flex items-center gap-3 flx-wrap">
         
            <Button className="ring-zinc-300 ring-1 gap-1 text-white">
-             <PlusIcon/>
-             Add to List
+           <Sparkles size={18}/>
+             What AI says about
            </Button>
             <Button className="bg-white  gap-1 text-black">
               <Play size={18}/>Watch now 

@@ -52,29 +52,45 @@ const handleNumberClick = (page: number) => {
 
 
   return (
-    <div className='flex  items-center gap-3 bg-[#3d3e40] rounded-[10px] m-5 shadow-md px-5 text-xs z-20 fixed bottom-0' >
-        {!(pageNumber === 1) && (<Button className='  p-0 text-white transition-all ease-in-out duration-300' onClick={handlePrevPageChange}><ChevronLeft className='size-5 transition-all ease-in-out duration-300'/></Button>)}
-        <div className='flex font-bold gap-3 text-white'>
+    <div className='flex items-center justify-center gap-2 bg-zinc-900/95 backdrop-blur-sm rounded-full m-4 shadow-lg px-4 py-2 text-sm z-20 fixed bottom-0 left-1/2 -translate-x-1/2 border border-zinc-800'>
+        {!(pageNumber === 1) && (
+          <Button 
+            variant="ghost" 
+            size="icon"
+            className='hover:bg-zinc-800 text-zinc-400 hover:text-white transition-all duration-200' 
+            onClick={handlePrevPageChange}
+          >
+            <ChevronLeft className='size-4'/>
+          </Button>
+        )}
+        <div className='flex font-medium gap-1 text-zinc-400'>
           {pageNumberArray.map((page,index) => (
-          <div key={index}>
-            {pageNumber === Number(page) ? (
-              <button className='bg-zinc-800 shadow-md p-2 size-8 flex justify-center rounded-full transition-all ease-in-out duration-300'>
-                {page}
-              </button>
-            ) : (
-              <button 
-                onClick={() => handleNumberClick(Number(page))} 
-                className='transition-all ease-in-out duration-300 p-2 size-8 flex justify-center rounded-full'
-              >
-                {page}
-              </button>
-            )}
-          </div>
-        ))}
+            <div key={index}>
+              {pageNumber === Number(page) ? (
+                <button className='bg-zinc-800 text-white shadow-sm p-1.5 size-7 flex justify-center rounded-full transition-all duration-200'>
+                  {page}
+                </button>
+              ) : (
+                <button 
+                  onClick={() => handleNumberClick(Number(page))} 
+                  className='hover:bg-zinc-800 hover:text-white transition-all duration-200 p-1.5 size-7 flex justify-center rounded-full'
+                >
+                  {page}
+                </button>
+              )}
+            </div>
+          ))}
         </div>
-        {pageNumber < 8 && (<p className='text-white'>...</p>)}
-        <Button className=' p-0 text-white ' onClick={handleNextPageChange}><ChevronRight className='size-4'/></Button>
-      </div>
+        {pageNumber < 8 && (<p className='text-zinc-400'>...</p>)}
+        <Button 
+          variant="ghost" 
+          size="icon"
+          className='hover:bg-zinc-800 text-zinc-400 hover:text-white transition-all duration-200' 
+          onClick={handleNextPageChange}
+        >
+          <ChevronRight className='size-4'/>
+        </Button>
+    </div>
   )
 }
 
