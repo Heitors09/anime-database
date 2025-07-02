@@ -31,8 +31,8 @@ export default function CatalogFilter() {
   }
 
   return (
-    <section className=" w-full gap-4 h-auto my-12 flex items-center justify-center">
-      <Menubar className="bg-zinc-900/95 w-[200px] backdrop-blur-sm border border-zinc-800 hover:bg-zinc-800 rounded-[8px] shadow-lg">
+    <section className=" w-full gap-4 h-auto my-12 flex items-center mx-[372px]">
+      <Menubar className="bg-zinc-900/95 w-[300px] backdrop-blur-sm border border-zinc-800 hover:bg-zinc-800 rounded-[8px] shadow-lg">
         <MenubarMenu>
           <MenubarTrigger className="text-zinc-400 w-full hover:text-white data-[state=open]:bg-zinc-800 data-[state=open]:text-white transition-all duration-200 justify-between">
             {animeGenres.find(genre => genre.mal_id.toString() === searchParams.get('genre'))?.name || 'Genres'} {!searchParams.get('genre') ? (<ChevronDownIcon size={16}/>):(
@@ -41,7 +41,7 @@ export default function CatalogFilter() {
               </button>
             )}
           </MenubarTrigger>
-          <MenubarContent className="bg-zinc-900/95 backdrop-blur-sm border border-zinc-800 rounded-lg shadow-lg">
+          <MenubarContent className="bg-zinc-900/95 w-[300px] backdrop-blur-sm border border-zinc-800 rounded-lg shadow-lg">
             {animeGenres.map((genre) => (
               <MenubarItem 
                 key={genre.mal_id}
@@ -54,7 +54,7 @@ export default function CatalogFilter() {
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
-      <Menubar className="bg-zinc-900/95 w-[200px] backdrop-blur-sm border border-zinc-800 hover:bg-zinc-800 rounded-[8px] shadow-lg">
+      <Menubar className="bg-zinc-900/95 w-[300px] backdrop-blur-sm border border-zinc-800 hover:bg-zinc-800 rounded-[8px] shadow-lg">
         <MenubarMenu>
           <MenubarTrigger className="text-zinc-400 justify-between w-full hover:text-white data-[state=open]:bg-zinc-800 data-[state=open]:text-white transition-all duration-200">
               {orderByOptions.find(order => order.value === searchParams.get('order'))?.name || 'Order by'}
@@ -64,7 +64,7 @@ export default function CatalogFilter() {
 
                 </button>)}
           </MenubarTrigger>
-          <MenubarContent className="bg-zinc-900/95 backdrop-blur-sm border border-zinc-800 rounded-lg shadow-lg">
+          <MenubarContent className="bg-zinc-900/95 w-[300px] backdrop-blur-sm border border-zinc-800 rounded-lg shadow-lg">
             {orderByOptions.map((order) => (
               <MenubarItem 
                 key={order.value}

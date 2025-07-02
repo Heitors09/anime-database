@@ -17,8 +17,14 @@ type animeCardProps = {
 
 const AnimeCard = ({animeId} : animeCardProps) => {
   const {data, isLoading} = useQuery({
-    queryKey: ['anime-info'],
+    queryKey: ['anime-info', animeId],
     queryFn: () => getAnimeById(animeId),
+    staleTime: 24 * 60 * 60 * 1000, // 24 horas (baseado no cache da API)
+    gcTime: 24 * 60 * 60 * 1000, // 24 horas (mantém em cache por 24h)
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    retry: 3,
+    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000), // Exponential backoff
   })
 
 

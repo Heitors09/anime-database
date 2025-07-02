@@ -6,6 +6,7 @@ export const fetchAnimeSearchFilter = async (params: URLSearchParams) => {
   const genre = params.get('genre')
   const order = params.get('order')
   const page = params.get('page') || '1'
+  const anime = params.get('q')
 
   // Adiciona os parâmetros na URL
   if (genre) {
@@ -14,12 +15,15 @@ export const fetchAnimeSearchFilter = async (params: URLSearchParams) => {
   if (order) {
     url += `order_by=${order}&`
   }
+  if(anime){
+    url += `q=${anime}&`
+  }
   url += `page=${page}&sfw=true`
 
   const response = await fetch(url)
   const data = await response.json()
 
-  console.log(data)
 
   return data
 }
+
