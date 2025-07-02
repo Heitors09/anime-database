@@ -62,6 +62,21 @@ const SearchBar = ({className, placeholder}: SearchBarTypes) => {
     retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000), // Exponential backoff
   })
 
+  // Verifica se está no cliente para renderizar o dialog
+  if (typeof window === 'undefined') {
+    return (
+      <label className={cn(
+        "w-[400px] h-[44px] rounded-md bg-[#3d3e40] opacity-70 hover:cursor-pointer hover:brightness-110 duration-150", 
+        className
+      )}>
+        <div className="flex items-center gap-3 py-2.5 px-4">
+          <Search className="text-white" size={20}/>
+          <p className="text-white">{placeholder}</p>
+        </div>
+      </label>
+    )
+  }
+
 
 
 

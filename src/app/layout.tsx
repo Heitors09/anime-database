@@ -25,17 +25,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <AppWrapper>
-       <body className={montserrat.className}>
-       <div className=" w-full h-full">
-       <Header/>
-          <main>
-           {children}
-          </main>
-        </div>  
-        </body>
-        
-      </AppWrapper>
+      <body className={montserrat.className}>
+        <AppWrapper>
+          <div className=" w-full h-full">
+            <Header/>
+            <main>
+              {children}
+            </main>
+          </div>  
+        </AppWrapper>
+      </body>
     </html>
   );
 }

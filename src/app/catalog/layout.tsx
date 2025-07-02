@@ -11,12 +11,13 @@ export default function CatalogLayout({children}: {children: React.ReactNode}) {
   const getPage = params.get('page') ?? ''
   const pageNumber = parseInt(getPage, 10) 
 
-  
   return (
     <div>
       <CatalogFilter/>
-         {children}
-      <CatalogNavbar params={params} pageNumber={pageNumber}/>
+      {children}
+      {typeof window !== 'undefined' && (
+        <CatalogNavbar params={params} pageNumber={pageNumber}/>
+      )}
     </div>
   )
 }
