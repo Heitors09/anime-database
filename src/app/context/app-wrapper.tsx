@@ -23,7 +23,7 @@ const AppWrapper = ({children}: {children: ReactNode}) => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Suspense fallback={<CatalogSkeleton/>}>
+        <Suspense fallback={<div>Loading...</div>}>
          {children}
         </Suspense>
       </TooltipProvider>

@@ -82,7 +82,6 @@ const SearchBar = ({className, placeholder}: SearchBarTypes) => {
 
 
   return (
-
   <label className={cn(
   "w-[400px] h-[44px] rounded-md bg-[#3d3e40] opacity-70 hover:cursor-pointer hover:brightness-110 duration-150", 
   className
@@ -109,19 +108,21 @@ const SearchBar = ({className, placeholder}: SearchBarTypes) => {
            </div>
           {isSearchLoading ? (
             <SearchTypeSkeleton/>
-          ) : searchFilter?.data && searchFilter.data.length > 0 ? (
-            searchFilter.data.map((anime: any) => (
-              <Link href={`/${anime.mal_id}`} className='text-white flex items-center gap-3 p-3 rounded-[8px] bg-carousel' key={anime.mal_id}>
-                <Image src={anime.images.jpg.image_url} alt={anime.title} width={100} height={100} className='rounded-md'/>
-                <div className='flex flex-col gap-1'>
-                  <h1 className='text-sm font-bold'>{anime.title}</h1>
-                  <h2 className='text-sm text-zinc-400'>{anime.type}</h2>
-                  <p className='text-xs text-zinc-400 line-clamp-4'>{anime.synopsis}</p>
-                </div>
-              </Link>
-            ))
-          ) : searchText.length > 0 ? (
-            <div className="text-white text-center py-8">No anime found</div>
+          ) : searchFilter?.data ? (
+            searchFilter.data.length > 0 ? (
+              searchFilter.data.map((anime: any) => (
+                <Link href={`/${anime.mal_id}`} className='text-white flex items-center gap-3 p-3 rounded-[8px] bg-carousel' key={anime.mal_id}>
+                  <Image src={anime.images.jpg.image_url} alt={anime.title} width={100} height={100} className='rounded-md'/>
+                  <div className='flex flex-col gap-1'>
+                    <h1 className='text-sm font-bold'>{anime.title}</h1>
+                    <h2 className='text-sm text-zinc-400'>{anime.type}</h2>
+                    <p className='text-xs text-zinc-400 line-clamp-4'>{anime.synopsis}</p>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <div className="text-white text-center py-8">No anime found</div>
+            )
           ) : null}
         </div>
       </DialogContent>
