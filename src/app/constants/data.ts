@@ -8,8 +8,8 @@ export const headerItems = [
       href: '/catalog?page=1',
     },
     {
-      text: 'Genres',
-      href: '/genres',
+      text: 'Characters',
+      href: '/characters',
     },
     {
       text: 'Collections',
