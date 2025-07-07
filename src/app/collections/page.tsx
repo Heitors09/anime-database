@@ -12,9 +12,9 @@ export default function CollectionsPage() {
           <p className="text-zinc-400 text-lg">
             This page is under development
           </p>
-          <p className="text-zinc-500 text-sm">
-            Soon you'll be able to create and manage your favorite anime collections
-          </p>
+                     <p className="text-zinc-500 text-sm">
+             Soon you&apos;ll be able to create and manage your favorite anime collections
+           </p>
         </div>
 
         <div className="flex items-center gap-2 text-zinc-600 mt-8 text-sm">

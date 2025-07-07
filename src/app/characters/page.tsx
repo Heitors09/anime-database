@@ -3,7 +3,6 @@ export default function CharactersPage() {
     <div className="w-full h-screen flex flex-col items-center mt-48 bg-[#121212]">
       <div className="flex flex-col items-center space-y-6">
       <div className="w-24 h-24 border-4 border-white border-t-transparent rounded-full animate-spin"/>
-        
         <h1 className="text-4xl font-bold text-white mb-2">
           Characters
         </h1>
@@ -13,7 +12,7 @@ export default function CharactersPage() {
             This page is under development
           </p>
           <p className="text-zinc-500 text-sm">
-            Soon you'll be able to explore animes by characters
+            Soon you&apos;ll be able to explore animes by characters
           </p>
         </div>
 
